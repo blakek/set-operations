@@ -1,0 +1,96 @@
+{
+  "name": "@blakek/set-operations",
+  "version": "0.0.1",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
+  "author": "Blake Knight <oss.ideas@gmail.com> (https://blakek.me/)",
+  "description": "🧮 Common set operations (union, difference, isSubset, etc.) for any Iterable",
+  "bugs": {
+    "url": "https://github.com/blakek/set-operations/issues"
+  },
+  "homepage": "https://github.com/blakek/set-operations",
+  "keywords": [
+    "set",
+    "set operations",
+    "difference",
+    "intersection",
+    "subset",
+    "superset",
+    "sub set",
+    "super set",
+    "isSubset",
+    "isSuperset",
+    "symmetricDifference",
+    "union",
+    "operation",
+    "operations",
+    "filter"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blakek/set-operations.git"
+  },
+  "license": "MIT",
+  "files": [
+    "dist/**"
+  ],
+  "sideEffects": false,
+  "types": "dist/index.d.ts",
+  "ava": {
+    "extensions": [
+      "js",
+      "ts"
+    ],
+    "files": [
+      "src/**/*.test.js",
+      "src/**/*.test.ts"
+    ],
+    "ignoredByWatcher": [
+      "!src/**"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.12.7",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-typescript": "^7.12.7",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.8.1",
+    "@typescript-eslint/parser": "^4.8.1",
+    "amper-scripts": "^1.0.0-1",
+    "ava": "^3.13.0",
+    "nodemon": "^2.0.6",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.33.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.1.2"
+  },
+  "peerDependencies": {},
+  "scripts": {
+    "build": "run-s build:clean build:types build:js",
+    "build:clean": "rimraf ./dist",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "rollup -c",
+    "format-check": "amper-scripts format-check",
+    "format": "amper-scripts format-write",
+    "lint": "amper-scripts lint --config ./.eslintrc.js 'src/**/*.{js,ts,tsx}'",
+    "prepublish": "yarn build",
+    "test": "ava"
+  }
+}
